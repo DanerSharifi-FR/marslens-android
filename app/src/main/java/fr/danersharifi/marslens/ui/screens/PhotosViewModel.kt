@@ -22,27 +22,57 @@ class PhotosViewModel(
     val uiState = _uiState.asStateFlow()
 
     private var loadJob: Job? = null
+    private var nextPage: Int = 0
 
     init {
         loadPhotos()
     }
 
     fun loadPhotos() {
-        // avoid duplicate requests from repeated taps (could be problematic as it was during a manual test)
+        // Avoid duplicate requests from repeated taps.
         if (loadJob?.isActive == true) return
 
         _uiState.value = PhotosUiState()
+        loadPage(page = 0)
+    }
 
+    fun loadMore() {
+        val currentState = _uiState.value
+
+        if (loadJob?.isActive == true || !currentState.hasMore) return
+
+        // Keep existing photos visible while fetching the next page.
+        _uiState.value = currentState.copy(
+            isLoadingMore = true,
+            hasLoadMoreError = false,
+        )
+
+        loadPage(page = nextPage)
+    }
+
+    private fun loadPage(
+        page: Int,
+    ) {
         loadJob = viewModelScope.launch {
             try {
                 val result = repository.getPhotos(
                     mission = mission,
                     sol = sol,
-                    page = 0,
+                    page = page,
                 )
 
+                val previousPhotos = if (page == 0) {
+                    emptyList()
+                } else {
+                    _uiState.value.photos
+                }
+
+                nextPage = page + 1
+
+                // disctinctBy prevents duplicate photo IDs between pages
                 _uiState.value = PhotosUiState(
-                    photos = result.photos,
+                    photos = (previousPhotos + result.photos)
+                        .distinctBy { photo -> photo.id },
                     isLoading = false,
                     total = result.total,
                     hasMore = result.hasMore,
@@ -50,11 +80,14 @@ class PhotosViewModel(
             } catch (exception: CancellationException) {
                 throw exception
             } catch (exception: Exception) {
-                Log.e(TAG, "Photo request failed", exception)
+                Log.e(TAG, "Photo request failed (page $page)", exception)
 
-                _uiState.value = PhotosUiState(
+                // bug seen: failed next page shouldn't erase existing photos
+                _uiState.value = _uiState.value.copy(
                     isLoading = false,
-                    hasError = true,
+                    isLoadingMore = false,
+                    hasError = page == 0,
+                    hasLoadMoreError = page > 0,
                 )
             }
         }
