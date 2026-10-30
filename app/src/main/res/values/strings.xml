@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MarsLens</string>
+    <string name="search_title">Explore Mars</string>
+    <string name="search_description">Choose a mission and a Martian day</string>
+    <string name="mission_label">Mission</string>
+    <string name="curiosity">Curiosity</string>
+    <string name="curiosity_description">Rover / Gale crater</string>
+    <string name="insight">InSight</string>
+    <string name="insight_description">Lander / Elysium Planitia</string>
+    <string name="sol_label">Martian day (sol)</string>
+    <string name="sol_help">A sol is one day on Mars. Allowed range: 0-%1$d.</string>
+    <string name="sol_error">Enter a whole number between 0 and %1$d.</string>
 </resources>

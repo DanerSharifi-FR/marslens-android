@@ -30,4 +30,8 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.material3)
+    // Preview annotations for my composable files
+    implementation(libs.androidx.ui.tooling.preview)
+    // Rendering tools needed in debug builds
+    debugImplementation(libs.androidx.ui.tooling)
 }

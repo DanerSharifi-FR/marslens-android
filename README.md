@@ -10,6 +10,21 @@ Project for the **Semester 7 Android Development module assessment** of my engin
 
 <br>
 
+## Understanding the mission (personal notes if you got low knowledge on the topic like me :D)
+
+NASA missions send robotic explorers to study Mars:
+
+- **Curiosity** is a rover-a mobile robot that explores the surface.
+- **InSight** is a lander-a spacecraft that stays at its landing site.
+- A **sol** is one Martian day. Sol 0 marks the mission’s landing day.
+
+Also in case you don't also know what is a **Martian day** (just like I didn't xD) :
+- A **Martian day**, called a **sol**, is a full day–night cycle on Mars. It lasts about **24 hours and 40 minutes**, slightly longer than an Earth day. In this app, sols are counted from each mission’s landing day, **Sol 0**.
+
+The app lets you choose an explorer and a sol to find its photographs.
+
+<br>
+
 ## Planned screens
 
 - Select a mission and Martian day (sol).
@@ -24,7 +39,7 @@ Project for the **Semester 7 Android Development module assessment** of my engin
 2. Install **SDK 37**, configure your local SDK path, and sync Gradle. The daemon uses **JetBrains JDK 25**.
 3. Run `app` on an emulator or device with **Android 10+ (API 29)**.
 
-The app currently opens a blank screen.
+Select Curiosity or InSight and enter a Martian day, validated against the selected mission’s range. Photo browsing will follow.
 
 <br>
 
