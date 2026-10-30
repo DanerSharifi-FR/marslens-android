@@ -1,5 +1,6 @@
 package fr.danersharifi.marslens.data.remote.dto
 
+import fr.danersharifi.marslens.data.model.MarsPhoto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -24,4 +25,25 @@ data class MarsPhotoDto(
 
     @SerialName(value = "image_credit")
     val imageCredit: String? = null,
-)
+) {
+    fun toModel(): MarsPhoto {
+        // prioritize HTTPS :D
+        val imageUrl = (httpsUrl?.takeIf { it.isNotBlank() } ?: url.orEmpty())
+            .replaceFirst(
+                oldValue = "http://",
+                newValue = "https://",
+            )
+
+        return MarsPhoto(
+            id = id,
+            sol = sol,
+            mission = mission,
+            title = title.orEmpty(),
+            camera = instrument.orEmpty(),
+            imageUrl = imageUrl,
+            dateTaken = dateTaken,
+            description = description,
+            imageCredit = imageCredit,
+        )
+    }
+}
