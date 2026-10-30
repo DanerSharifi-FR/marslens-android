@@ -4,9 +4,11 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
 ![Jetpack Compose](https://img.shields.io/badge/Jetpack_Compose-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white)
 
-**A Mars photo explorer, built step by step.**
+**A Mars photo explorer, built step by step like I do at work/apprenticeship (git practices feature -> branch -> PR -> merge)**
 
 Project for the **Semester 7 Android Development module assessment** of my engineering degree at **IMT Atlantique**, following classes guided by [Mr **Lebranchu**](https://github.com/rlebranchu).
+
+State management: **ViewModel - StateFlow**
 
 <br>
 

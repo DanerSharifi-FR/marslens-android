@@ -40,4 +40,9 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.kotlinx.serialization.converter)
     implementation(libs.kotlinx.serialization.json)
+    // ViewModel scope & Compose integration
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    // Collect state while the screen is active.
+    implementation(libs.androidx.lifecycle.runtime.compose)
 }
