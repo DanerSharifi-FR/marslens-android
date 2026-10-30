@@ -16,7 +16,7 @@
     <string name="photo_sol">Sol %1$d</string>
     <string name="photo_image_unavailable">Photograph unavailable</string>
 
-    <string name="photos_screen_title">%1$s - Sol %2$d</string>
+    <string name="photos_screen_title">%1$s - Sol %2$s</string>
     <string name="photos_count">Photographs: %1$d</string>
     <string name="photos_loading">Loading photographs…</string>
 
@@ -29,4 +29,7 @@
 
     <string name="photos_load_more">Load more</string>
     <string name="photos_load_more_error">Unable to load more photographs. Try again.</string>
+
+    <string name="search_photos">Find photographs</string>
+    <string name="navigate_back">Back</string>
 </resources>
