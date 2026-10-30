@@ -10,4 +10,9 @@
     <string name="sol_label">Martian day (sol)</string>
     <string name="sol_help">A sol is one day on Mars. Allowed range: 0-%1$d.</string>
     <string name="sol_error">Enter a whole number between 0 and %1$d.</string>
+
+    <string name="photo_title_fallback">Photo #%1$d</string>
+    <string name="photo_camera_unknown">Camera not provided</string>
+    <string name="photo_sol">Sol %1$d</string>
+    <string name="photo_image_unavailable">Photograph unavailable</string>
 </resources>

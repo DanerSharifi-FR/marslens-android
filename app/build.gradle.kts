@@ -43,6 +43,9 @@ dependencies {
     // ViewModel scope & Compose integration
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    // Collect state while the screen is active.
+    // Collect state while the screen is active
     implementation(libs.androidx.lifecycle.runtime.compose)
+    // Load & cache photos
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 }
