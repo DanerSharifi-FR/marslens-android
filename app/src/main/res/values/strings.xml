@@ -15,4 +15,18 @@
     <string name="photo_camera_unknown">Camera not provided</string>
     <string name="photo_sol">Sol %1$d</string>
     <string name="photo_image_unavailable">Photograph unavailable</string>
+
+    <string name="photos_screen_title">%1$s - Sol %2$d</string>
+    <string name="photos_count">Photographs: %1$d</string>
+    <string name="photos_loading">Loading photographs…</string>
+
+    <string name="photos_error_title">Unable to load photographs</string>
+    <string name="photos_error_message">Check your connection and try again.</string>
+    <string name="photos_retry">Try again</string>
+
+    <string name="photos_empty_title">No photographs found</string>
+    <string name="photos_empty_message">Try another mission or Martian day.</string>
+
+    <string name="photos_load_more">Load more</string>
+    <string name="photos_load_more_error">Unable to load more photographs. Try again.</string>
 </resources>
