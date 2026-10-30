@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    // Serializers used to read API resps
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -34,4 +36,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     // Rendering tools needed in debug builds
     debugImplementation(libs.androidx.ui.tooling)
+    // HTTP reqs & conversion of JSON resps into Kotlin obj
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx.serialization.converter)
+    implementation(libs.kotlinx.serialization.json)
 }

@@ -3,6 +3,9 @@ agp = "9.4.1"
 kotlin = "2.4.20"
 activityCompose = "1.13.0"
 composeBom = "2026.09.00"
+retrofit = "3.0.0"
+retrofitSerializationConverter = "1.0.0"
+kotlinxSerializationJson = "1.12.0"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -11,7 +14,11 @@ androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-kotlinx-serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitSerializationConverter" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
