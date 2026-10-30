@@ -4,9 +4,11 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
 ![Jetpack Compose](https://img.shields.io/badge/Jetpack_Compose-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white)
 
-**A Mars photo explorer, built step by step.**
+**A Mars photo explorer, built step by step like I do at work/apprenticeship (git practices feature -> branch -> PR -> merge)**
 
 Project for the **Semester 7 Android Development module assessment** of my engineering degree at **IMT Atlantique**, following classes guided by [Mr **Lebranchu**](https://github.com/rlebranchu).
+
+State management: **ViewModel - StateFlow**
 
 <br>
 
@@ -27,11 +29,13 @@ The app lets you choose an explorer and a sol to find its photographs.
 
 ## Planned screens
 
-- Select a mission and Martian day (sol).
-- Browse the matching NASA photos.
-- View a photo and its associated information.
+## Screens
 
-<br>
+- [x] Select a mission and Martian day (sol).
+- [x] Browse matching NASA photos with pagination.
+- [ ] View a photo and its associated information.
+
+- <br>
 
 ## Run locally
 
@@ -39,7 +43,7 @@ The app lets you choose an explorer and a sol to find its photographs.
 2. Install **SDK 37**, configure your local SDK path, and sync Gradle. The daemon uses **JetBrains JDK 25**.
 3. Run `app` on an emulator or device with **Android 10+ (API 29)**.
 
-Select Curiosity or InSight and enter a Martian day, validated against the selected mission’s range. Photo browsing will follow.
+Select Curiosity or InSight, enter a valid Martian day, and browse NASA photographs. Load more results as needed. Photo details will follow.
 
 <br>
 

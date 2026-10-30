@@ -26,9 +26,11 @@ import fr.danersharifi.marslens.R
 import fr.danersharifi.marslens.data.model.Mission
 import fr.danersharifi.marslens.ui.components.MissionCard
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material3.Button
 
 @Composable
 fun MissionSearchScreen(
+    onSearch: (Mission, Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     // Preserve selected mission across recompositions and activity recreation
@@ -125,6 +127,21 @@ fun MissionSearchScreen(
                 keyboardType = KeyboardType.Number,
             ),
         )
+
+        Button(
+            onClick = {
+                // send only validated search criteria
+                if (sol != null && !isSolInvalid) {
+                    onSearch(selectedMission, sol)
+                }
+            },
+            enabled = !isSolInvalid,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Text(
+                text = stringResource(id = R.string.search_photos),
+            )
+        }
     }
 }
 
@@ -132,6 +149,8 @@ fun MissionSearchScreen(
 @Composable
 private fun MissionSearchScreenPreview() {
     MaterialTheme {
-        MissionSearchScreen()
+        MissionSearchScreen(
+            onSearch = { _, _ -> },
+        )
     }
 }
