@@ -50,9 +50,7 @@ class PhotosViewModel(
         loadPage(page = nextPage)
     }
 
-    private fun loadPage(
-        page: Int,
-    ) {
+    private fun loadPage(page: Int) {
         loadJob = viewModelScope.launch {
             try {
                 val result = repository.getPhotos(

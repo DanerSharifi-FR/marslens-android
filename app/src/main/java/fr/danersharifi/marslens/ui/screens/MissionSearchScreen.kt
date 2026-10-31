@@ -10,6 +10,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -21,12 +22,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import fr.danersharifi.marslens.R
 import fr.danersharifi.marslens.data.model.Mission
 import fr.danersharifi.marslens.ui.components.MissionCard
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.material3.Button
 
 @Composable
 fun MissionSearchScreen(
@@ -45,9 +45,9 @@ fun MissionSearchScreen(
     val sol = solInput.toIntOrNull()
     // Bug : numeric keyboard still lets invalid text through when pasting
     // So reject non-digits and values outside the selected mission's sol range
-    val isSolInvalid = sol == null
-            || sol !in 0..selectedMission.maxSol
-            || solInput.any { it !in '0'..'9' }
+    val isSolInvalid = sol == null ||
+        sol !in 0..selectedMission.maxSol ||
+        solInput.any { it !in '0'..'9' }
 
     Column(
         modifier = modifier
