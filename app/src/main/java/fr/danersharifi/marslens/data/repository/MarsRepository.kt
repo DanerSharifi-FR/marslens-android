@@ -1,10 +1,10 @@
 package fr.danersharifi.marslens.data.repository
 
+import fr.danersharifi.marslens.data.model.MarsPhoto
 import fr.danersharifi.marslens.data.model.MarsPhotoPage
 import fr.danersharifi.marslens.data.model.Mission
 import fr.danersharifi.marslens.data.remote.MarsApiService
 import fr.danersharifi.marslens.data.remote.MarsClient
-import fr.danersharifi.marslens.data.model.MarsPhoto
 
 class MarsRepository(private val api: MarsApiService = MarsClient.create()) {
     suspend fun getPhotos(
@@ -26,9 +26,7 @@ class MarsRepository(private val api: MarsApiService = MarsClient.create()) {
         )
     }
 
-    suspend fun getPhoto(
-        photoId: Int,
-    ): MarsPhoto? {
+    suspend fun getPhoto(photoId: Int): MarsPhoto? {
         val response = api.getPhoto(
             photoIdFilter = "$photoId:id",
         )
