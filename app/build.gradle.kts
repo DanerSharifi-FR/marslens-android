@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ktlint)
     // Serializers used to read API resps
     alias(libs.plugins.kotlin.serialization)
 }
@@ -8,6 +9,7 @@ plugins {
 android {
     namespace = "fr.danersharifi.marslens"
     compileSdk = 37
+    ndkVersion = "28.2.13676358"
 
     defaultConfig {
         applicationId = "fr.danersharifi.marslens"
