@@ -21,6 +21,7 @@ import fr.danersharifi.marslens.data.model.MarsPhoto
 @Composable
 fun PhotoCard(
     photo: MarsPhoto,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val title = photo.title.ifBlank {
@@ -31,6 +32,7 @@ fun PhotoCard(
     }
 
     Card(
+        onClick = onClick,
         modifier = modifier.fillMaxWidth(),
     ) {
         PhotoImage(
@@ -88,6 +90,7 @@ private fun PhotoCardPreview() {
                 description = null,
                 imageCredit = null,
             ),
+            onClick = {},
             modifier = Modifier.padding(all = 16.dp),
         )
     }

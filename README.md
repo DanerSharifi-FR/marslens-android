@@ -31,13 +31,13 @@ The app lets you choose an explorer and a sol to find its photographs.
 
 - [x] Select a mission and Martian day (sol).
 - [x] Browse matching NASA photos with pagination.
-- [ ] View a photo and its associated information.
+- [x] View a photo and its associated information.
 
 <br>
 
 ## Run locally
 
-1. Open the repository in **Android Studio**.
+1. Open the repository in **Android Studio Rabbit 2 (2026.2.2)** or newer.
 2. Install **SDK 37** and **NDK 28.2.13676358**, configure your local SDK path, and sync Gradle. The build uses **Eclipse Temurin JDK 21**.
 3. Run `app` on an emulator or device with **Android 10+ (API 29)**.
 
@@ -51,7 +51,7 @@ Run the checks locally:
 
 GitHub Actions runs these checks on pull requests and updates to `main`.
 
-Select Curiosity or InSight, enter a valid Martian day, and browse NASA photographs. Load more results as needed. Photo details will follow.
+Select Curiosity or InSight, enter a valid Martian day, and browse NASA photographs. Load more results as needed, then open a photograph to view its image and metadata.
 
 <br>
 

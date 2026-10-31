@@ -29,6 +29,7 @@ fun PhotosScreen(
     uiState: PhotosUiState,
     onRetry: () -> Unit,
     onLoadMore: () -> Unit,
+    onPhotoClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     when {
@@ -90,6 +91,9 @@ fun PhotosScreen(
                 ) { photo ->
                     PhotoCard(
                         photo = photo,
+                        onClick = {
+                            onPhotoClick(photo.id)
+                        },
                     )
                 }
 
@@ -201,6 +205,7 @@ private fun PhotosScreenPreview() {
             ),
             onRetry = {},
             onLoadMore = {},
+            onPhotoClick = {},
         )
     }
 }
@@ -213,6 +218,7 @@ private fun PhotosLoadingPreview() {
             uiState = PhotosUiState(),
             onRetry = {},
             onLoadMore = {},
+            onPhotoClick = {},
         )
     }
 }
