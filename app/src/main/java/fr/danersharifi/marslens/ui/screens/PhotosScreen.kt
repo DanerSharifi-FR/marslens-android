@@ -17,18 +17,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import fr.danersharifi.marslens.R
 import fr.danersharifi.marslens.data.model.MarsPhoto
 import fr.danersharifi.marslens.ui.components.PhotoCard
+import fr.danersharifi.marslens.ui.components.ScreenMessage
 
 @Composable
 fun PhotosScreen(
     uiState: PhotosUiState,
     onRetry: () -> Unit,
     onLoadMore: () -> Unit,
+    onPhotoClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     when {
@@ -52,7 +53,7 @@ fun PhotosScreen(
         }
 
         uiState.hasError -> {
-            PhotosMessage(
+            ScreenMessage(
                 title = stringResource(id = R.string.photos_error_title),
                 message = stringResource(id = R.string.photos_error_message),
                 onRetry = onRetry,
@@ -61,7 +62,7 @@ fun PhotosScreen(
         }
 
         uiState.photos.isEmpty() -> {
-            PhotosMessage(
+            ScreenMessage(
                 title = stringResource(id = R.string.photos_empty_title),
                 message = stringResource(id = R.string.photos_empty_message),
                 modifier = modifier,
@@ -90,6 +91,9 @@ fun PhotosScreen(
                 ) { photo ->
                     PhotoCard(
                         photo = photo,
+                        onClick = {
+                            onPhotoClick(photo.id)
+                        },
                     )
                 }
 
@@ -136,47 +140,6 @@ fun PhotosScreen(
     }
 }
 
-// Shared layout for empty res and req errors
-@Composable
-private fun PhotosMessage(
-    title: String,
-    message: String,
-    modifier: Modifier = Modifier,
-    onRetry: (() -> Unit)? = null,
-) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(all = 24.dp),
-        verticalArrangement = Arrangement.spacedBy(
-            space = 12.dp,
-            alignment = Alignment.CenterVertically,
-        ),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text(
-            text = title,
-            style = MaterialTheme.typography.titleLarge,
-            textAlign = TextAlign.Center,
-        )
-
-        Text(
-            text = message,
-            textAlign = TextAlign.Center,
-        )
-
-        if (onRetry != null) {
-            Button(
-                onClick = onRetry,
-            ) {
-                Text(
-                    text = stringResource(id = R.string.photos_retry),
-                )
-            }
-        }
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 private fun PhotosScreenPreview() {
@@ -201,6 +164,7 @@ private fun PhotosScreenPreview() {
             ),
             onRetry = {},
             onLoadMore = {},
+            onPhotoClick = {},
         )
     }
 }
@@ -213,6 +177,7 @@ private fun PhotosLoadingPreview() {
             uiState = PhotosUiState(),
             onRetry = {},
             onLoadMore = {},
+            onPhotoClick = {},
         )
     }
 }

@@ -11,3 +11,7 @@ data class PhotosRoute(
     val missionCode: String,
     val sol: Int,
 )
+
+// Pass the ID so the detail screen can fetch its own data
+@Serializable
+data class PhotoDetailRoute(val photoId: Int)

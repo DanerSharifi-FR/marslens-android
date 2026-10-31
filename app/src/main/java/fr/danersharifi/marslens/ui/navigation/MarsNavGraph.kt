@@ -21,6 +21,8 @@ import androidx.navigation.toRoute
 import fr.danersharifi.marslens.R
 import fr.danersharifi.marslens.data.model.Mission
 import fr.danersharifi.marslens.ui.screens.MissionSearchScreen
+import fr.danersharifi.marslens.ui.screens.PhotoDetailScreen
+import fr.danersharifi.marslens.ui.screens.PhotoDetailViewModel
 import fr.danersharifi.marslens.ui.screens.PhotosScreen
 import fr.danersharifi.marslens.ui.screens.PhotosViewModel
 
@@ -119,6 +121,70 @@ fun MarsNavGraph(modifier: Modifier = Modifier) {
                     uiState = uiState,
                     onRetry = photosViewModel::loadPhotos,
                     onLoadMore = photosViewModel::loadMore,
+                    onPhotoClick = { photoId ->
+                        navController.navigate(
+                            route = PhotoDetailRoute(
+                                photoId = photoId,
+                            ),
+                        ) {
+                            // Rapid taps should not stack the same photo twice
+                            launchSingleTop = true
+                        }
+                    },
+                    modifier = Modifier.padding(
+                        paddingValues = innerPadding,
+                    ),
+                )
+            }
+        }
+
+        composable<PhotoDetailRoute> { backStackEntry ->
+            val route = backStackEntry.toRoute<PhotoDetailRoute>()
+
+            // Recomposition must reuse the ViewModel instead of restarting the request
+            val detailViewModel: PhotoDetailViewModel = viewModel(
+                viewModelStoreOwner = backStackEntry,
+                factory = viewModelFactory {
+                    initializer {
+                        PhotoDetailViewModel(
+                            photoId = route.photoId,
+                        )
+                    }
+                },
+            )
+
+            val uiState by detailViewModel.uiState
+                .collectAsStateWithLifecycle()
+
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        title = {
+                            Text(
+                                text = stringResource(
+                                    id = R.string.photo_detail_title,
+                                ),
+                            )
+                        },
+                        navigationIcon = {
+                            TextButton(
+                                onClick = {
+                                    navController.popBackStack()
+                                },
+                            ) {
+                                Text(
+                                    text = stringResource(
+                                        id = R.string.navigate_back,
+                                    ),
+                                )
+                            }
+                        },
+                    )
+                },
+            ) { innerPadding ->
+                PhotoDetailScreen(
+                    uiState = uiState,
+                    onRetry = detailViewModel::loadPhoto,
                     modifier = Modifier.padding(
                         paddingValues = innerPadding,
                     ),

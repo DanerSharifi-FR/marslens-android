@@ -32,4 +32,19 @@
 
     <string name="search_photos">Find photographs</string>
     <string name="navigate_back">Back</string>
+
+    <string name="photo_detail_title">Photo details</string>
+    <string name="photo_detail_loading">Loading photograph…</string>
+    <string name="photo_detail_error">Unable to load this photograph</string>
+    <string name="photo_detail_not_found">Photograph not found</string>
+    <string name="photo_detail_not_found_message">Return to the list and choose another photograph.</string>
+
+    <string name="photo_detail_id">Photo ID</string>
+    <string name="photo_detail_mission">Mission</string>
+    <string name="photo_detail_sol">Martian day (sol)</string>
+    <string name="photo_detail_camera">Camera</string>
+    <string name="photo_detail_date">Captured (UTC)</string>
+    <string name="photo_detail_description">About this photograph</string>
+    <string name="photo_detail_credit">Image credit</string>
+    <string name="photo_detail_unknown">Not provided</string>
 </resources>
