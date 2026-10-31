@@ -26,9 +26,7 @@ import fr.danersharifi.marslens.ui.screens.PhotosViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MarsNavGraph(
-    modifier: Modifier = Modifier,
-) {
+fun MarsNavGraph(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
     NavHost(

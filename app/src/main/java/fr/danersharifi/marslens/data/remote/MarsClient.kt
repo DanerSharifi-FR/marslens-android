@@ -12,15 +12,13 @@ object MarsClient {
         ignoreUnknownKeys = true
     }
 
-    fun create(): MarsApiService {
-        return Retrofit.Builder()
-            .baseUrl("https://mars.nasa.gov/api/")
-            .addConverterFactory(
-                json.asConverterFactory(
-                    contentType = "application/json".toMediaType(),
-                ),
-            )
-            .build()
-            .create(MarsApiService::class.java)
-    }
+    fun create(): MarsApiService = Retrofit.Builder()
+        .baseUrl("https://mars.nasa.gov/api/")
+        .addConverterFactory(
+            json.asConverterFactory(
+                contentType = "application/json".toMediaType(),
+            ),
+        )
+        .build()
+        .create(MarsApiService::class.java)
 }

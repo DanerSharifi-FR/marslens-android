@@ -6,9 +6,7 @@ import fr.danersharifi.marslens.data.remote.MarsApiService
 import fr.danersharifi.marslens.data.remote.MarsClient
 import fr.danersharifi.marslens.data.model.MarsPhoto
 
-class MarsRepository(
-    private val api: MarsApiService = MarsClient.create(),
-) {
+class MarsRepository(private val api: MarsApiService = MarsClient.create()) {
     suspend fun getPhotos(
         mission: Mission,
         sol: Int,
