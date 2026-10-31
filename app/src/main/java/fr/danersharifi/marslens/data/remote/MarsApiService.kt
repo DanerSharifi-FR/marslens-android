@@ -24,4 +24,11 @@ interface MarsApiService {
         @Query(value = "order")
         order: String = "id asc",
     ): MarsPhotoResponseDto
+
+    // ID filter exemple: "259238:id"
+    @GET(value = "v1/raw_image_items/")
+    suspend fun getPhoto(
+        @Query(value = "condition_1")
+        photoIdFilter: String,
+    ): MarsPhotoResponseDto
 }

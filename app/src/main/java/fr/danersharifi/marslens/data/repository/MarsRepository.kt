@@ -4,6 +4,7 @@ import fr.danersharifi.marslens.data.model.MarsPhotoPage
 import fr.danersharifi.marslens.data.model.Mission
 import fr.danersharifi.marslens.data.remote.MarsApiService
 import fr.danersharifi.marslens.data.remote.MarsClient
+import fr.danersharifi.marslens.data.model.MarsPhoto
 
 class MarsRepository(
     private val api: MarsApiService = MarsClient.create(),
@@ -25,5 +26,18 @@ class MarsRepository(
             total = response.total,
             hasMore = response.more,
         )
+    }
+
+    suspend fun getPhoto(
+        photoId: Int,
+    ): MarsPhoto? {
+        val response = api.getPhoto(
+            photoIdFilter = "$photoId:id",
+        )
+
+        // the API returns a list of ONE so find the matching ID by precaution, null if missing
+        return response.items
+            .firstOrNull { dto -> dto.id == photoId }
+            ?.toModel()
     }
 }
