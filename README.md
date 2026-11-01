@@ -35,6 +35,20 @@ The app lets you choose an explorer and a sol to find its photographs.
 
 <br>
 
+## Assessment criteria
+
+| Criterion | How I addressed it |
+| --- | --- |
+| Functional requirements | Three screens for mission/sol selection, matching photographs, and photo details |
+| Code quality | Clear naming, shared image/message components, and CI checks with ktlint, Android lint, and SonarQube |
+| Code structure | Separate responsibilities for Compose UI, ViewModels/state, repositories, models, and API/DTOs |
+| Navigation | Typed routes, photo IDs passed to details, and Back navigation preserving the results |
+| API communication | Retrofit filters by mission, sol, and photo ID, with DTO mapping, pagination, and error/retry handling |
+
+The UI uses standard Material 3 components and a shared theme across the three screens.
+
+<br>
+
 ## Run locally
 
 1. Open the repository in **Android Studio Rabbit 2 (2026.2.2)** or newer.
