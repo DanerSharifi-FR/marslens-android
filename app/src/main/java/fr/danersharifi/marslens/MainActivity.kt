@@ -9,9 +9,9 @@ import fr.danersharifi.marslens.ui.navigation.MarsNavGraph
 
 /**
  * MarsLens lets users search NASA photos by mission and Martian day (sol),
- * browse the results, and view a photo with its associated information.
+ * browse the results, and view a photo with its associated information
  *
- * Android Development assessment - Semester 7, IMT Atlantique.
+ * Android Development assessment - FIL A2, Semester 7, IMT Atlantique
  *
  * @author Daner SHARIFI
  */
